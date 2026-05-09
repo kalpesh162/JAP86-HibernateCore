@@ -1,0 +1,28 @@
+package p5;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Integer>numbers=new ArrayList<Integer>();
+		numbers.add(111);
+		numbers.add(121);
+		numbers.add(113);
+		numbers.add(131);
+		numbers.add(121);
+		
+		Iterator<Integer> itr=numbers.iterator();
+		// to remove Object 131
+		
+		while(itr.hasNext()) {
+			Integer i1=itr.next();
+			if()
+		}
+		
+		
+	}
+
+}

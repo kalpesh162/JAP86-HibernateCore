@@ -1,0 +1,25 @@
+package p1;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		for (int i = 1; i <= 5; i++) {
+			System.out.println("Enter Char");
+			char letter = scanner.next().charAt(0);
+			System.out.println("Enter num");
+			int num = scanner.nextInt();
+			System.out.println("Enter Char");
+			char alpha = scanner.next().charAt(0);
+
+			System.out.println("  letter " + letter);
+			System.out.println("  NUM " + num);
+			System.out.println("  letter " + alpha);
+		}
+
+	}
+
+}
