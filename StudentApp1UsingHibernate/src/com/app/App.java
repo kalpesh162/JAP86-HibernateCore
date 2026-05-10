@@ -39,10 +39,10 @@ public class App {
 		System.out.println("-----------------------");
 		session.save(student); // internally
 		System.out.println("-----------------------");
-		
+
 		System.out.println("** BEFORE COMMINT");
 		tx.commit(); // Gurantee Data will be added in table
-		
+		System.out.println("+++++++++++++++++++++++++");
 		System.out.println("Done ");
 		session.close();
 		factory.close();

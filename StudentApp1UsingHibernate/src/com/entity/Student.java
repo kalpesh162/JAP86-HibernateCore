@@ -1,6 +1,7 @@
 package com.entity;
 
 import java.io.Serializable;
+
 // Entity  --> Student Object
 public class Student implements Serializable {
 	private int id;
