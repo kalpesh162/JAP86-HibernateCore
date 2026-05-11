@@ -22,88 +22,88 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-		
-		// Use DAO 
-		StudentDao studentDao=new StudentDaoImpl();
-		
-		int option;
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("******************");
-		System.out.println("***1 : ADD STUDENT     *********");
-		System.out.println("***2 : DELETE STUDENT     ***************");
-		System.out.println("***3 : GET STUDENT  ***************");
-		System.out.println("***4 : UPDATE STUDENT  ***************");
-		System.out.println("***5 : READ ALL LIST   ***************");
-		System.out.println("Enter Option ");
-		option=scanner.nextInt();
-	
+
+		// Use DAO
+		StudentDao studentDao = new StudentDaoImpl();
+
+		int option, x;
+
 		do {
-			 
+
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("******************");
+			System.out.println("***1 : ADD STUDENT     *********");
+			System.out.println("***2 : DELETE STUDENT     ***************");
+			System.out.println("***3 : GET STUDENT  ***************");
+			System.out.println("***4 : UPDATE STUDENT  ***************");
+			System.out.println("***5 : READ ALL LIST   ***************");
+			System.out.println("Enter Option ");
+			option = scanner.nextInt();
+
 			switch (option) {
-			case 1 :
-					Student s1=getStudent();
-					studentDao.saveStudent(s1);
-					System.out.println("**** ADD SUCCESS ****");
+			case 1:
+				Student s1 = getStudent();
+				studentDao.saveStudent(s1);
+				System.out.println("**** ADD SUCCESS ****");
 				break;
-			
-			case 2 :
+
+			case 2:
 				System.out.println("Enter Student ID to DELETED");
-				int dId=scanner.nextInt();
+				int dId = scanner.nextInt();
 				studentDao.deleteStudentById(dId);
 				System.out.println("DELETE SUCCESS");
 				break;
-				
-			case 3 :
+
+			case 3:
 				System.out.println("Enter Student ID to Read");
-				int rId=scanner.nextInt();
-				Student student=studentDao.getStudentById(rId);
-				System.out.println(student);  // Use Formatting of to String Here to print
-				
-			case 4 :
+				int rId = scanner.nextInt();
+				Student student = studentDao.getStudentById(rId);
+				System.out.println(student); // Use Formatting of to String Here to print
+
+			case 4:
 				System.out.println("Enter EXISTING  Student ID ");
-				int exId=scanner.nextInt();
-				Student student1=studentDao.getStudentById(rId);
-				System.out.println(student1); // Display 
-				if(student!=null) {
+				int exId = scanner.nextInt();
+				Student student1 = studentDao.getStudentById(exId);
+				System.out.println(student1); // Display
+				if (student1 != null) {
 					System.out.println("Enter Updated Info of Student Below ");
-					Student updatedStudent=getStudent();
+					Student updatedStudent = getStudent();
 					// dont forget to Set the id
 					updatedStudent.setId(exId);
 					studentDao.updateStudent(updatedStudent);
 					System.out.println("Student UPATED SUCCESSFULLY");
-				}
-				else {
-					System.out.println("No Student Exist with ID "+exId);
+				} else {
+					System.out.println("No Student Exist with ID " + exId);
 					// better approach use customized exception
-					
+
 				}
-				
-			case 5 :
-				 System.out.println("STUDENT LIST ");
-				 List<Student> list=studentDao.getAllStudent();
-				 
-				 printList(list);
-				
-				
+
+			case 5:
+				System.out.println("STUDENT LIST ");
+				List<Student> list = studentDao.getAllStudent();
+
+				printList(list);
+
 			default:
 				break;
 			}
-			
-			
-		}while();
-		
-		
-		
+
+			System.out.println("Press 1 for continue ...");
+			System.out.println("Enter ");
+			x = scanner.nextInt();
+
+		} while (x == 1);
+
 	}
 
 	private static void printList(List<Student> list) {
 		System.out.println("---------------------------------");
-		System.out.println("ID      NAME    MARKS");
-		System.out.println("-------------------------");
+		System.out.println("ID            NAME            MARKS");
+		System.out.println("---------------------------------");
 		for (Student student : list) {
 			System.out.printf("%4d", student.getId());
-			System.out.printf("%10s", student.getName());
-			System.out.printf("%4.2lf", student.getMarks());
+			System.out.printf("%18s", student.getName());
+			System.out.printf("%12.2f", student.getMarks());
 			System.out.println();
 		}
 
