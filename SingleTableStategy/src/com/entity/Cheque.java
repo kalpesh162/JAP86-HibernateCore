@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue(value = "CH")
-public class Cheque {
+public class Cheque extends Payment {
 	private int chequeNo;
 	private String chequeType;
 
