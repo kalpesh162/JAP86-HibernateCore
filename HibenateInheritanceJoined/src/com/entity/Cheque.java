@@ -37,7 +37,7 @@ public class Cheque extends Payment {
 
 	@Override
 	public String toString() {
-		return "Cheque [chequeNo=" + chequeNo + ", chequeType=" + chequeType + "]";
+		return "Cheque [chequeNo=" + chequeNo + ", chequeType=" + chequeType + "]" + super.toString();
 	}
 
 }
